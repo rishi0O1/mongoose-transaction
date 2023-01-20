@@ -46,4 +46,31 @@ export class AppService {
     }
     console.log('check123123');
   }
+
+  async transactionExample2() {
+    let transactionSession;
+    try {
+      transactionSession = await this.connection.startSession();
+      await transactionSession.withTransaction(async () => {
+        const newCat = new this.catModel({
+          name: 'name3',
+          age: 1,
+          breed: 'cree',
+        });
+        await newCat.save({ session: transactionSession });
+
+        const newCat2 = new this.catModel({
+          name: 'name4',
+          age: 1,
+          breed: 'cree',
+        });
+        await newCat2.save({ session: transactionSession });
+        throw new Error('adadds');
+      });
+      await transactionSession.endSession();
+      return 'Hello World!';
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
