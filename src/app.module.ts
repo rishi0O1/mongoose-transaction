@@ -9,7 +9,7 @@ mongoose.set('debug', true);
   imports: [
     MongooseModule.forRoot(
       'mongodb+srv://admin:2mNrPRPse3r9OJKA@cluster0.j4vrt7n.mongodb.net/test123?retryWrites=true&w=majority',
-      { }),
+    ),
     MongooseModule.forFeature([{ name: Cat.name, schema: CatSchema }]),
   ],
   controllers: [AppController],

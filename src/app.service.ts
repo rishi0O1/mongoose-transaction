@@ -24,14 +24,14 @@ export class AppService {
 
       session.startTransaction();
       const newCat = new this.catModel({
-        name: 'name',
+        name: 'name2123123',
         age: 1,
         breed: 'cree',
       });
       await newCat.save({ session });
 
       const newCat2 = new this.catModel({
-        name: 'name',
+        name: 'name123',
         age: 1,
         breed: 'cree',
       });
